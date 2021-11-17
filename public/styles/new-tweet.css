@@ -21,14 +21,14 @@ form footer output.counter {
   color: red;
 }
 
-/* Styling the tweet buttom */
+/* Styling for the tweet buttom */
 section.new-tweet footer button {
   background-color: blue;
   color: #ffffff;
   font-family: 'Bungee', sans-serif;
 }
 
-/* Styling the textarea of the form */
+/* Styling for the textarea of the form */
 #tweet-text {
   padding-top: 10px;
   background: transparent;
