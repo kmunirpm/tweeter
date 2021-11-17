@@ -41,3 +41,47 @@ section.new-tweet form label {
   font-weight: bold;
 }
 
+
+/* Black box around the tweet */
+article.tweet {
+  margin: 50px 0 15px 0;
+  padding: 20px;
+  border: 3px solid black;
+}
+
+
+article.tweet header div.user div img {
+  padding-right: 10px;
+}
+
+/* Flex box for (name avatar) and handle */
+article.tweet div.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 10px #888888;
+}
+
+header p {
+  margin-bottom: 10px;
+  border-bottom: 3px solid black;
+}
+
+article.handle {
+  box-shadow: 5px 10px #888888;
+  width: 90%;
+}
+
+
+article.tweet footer span {
+  font-size: .6em;
+}
+
+/* Flex box for footer items */
+article.tweet footer div {
+  display: flex;
+  justify-content: space-between;
+}
