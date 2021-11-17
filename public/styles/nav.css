@@ -1,0 +1,30 @@
+nav {
+  height: 120px;
+  width: 100vw;
+  background-color: #916a00;
+  background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+  color: #ffffff;
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  /* Fix the navigation bar */
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.tweeter-nav {
+  font-family: 'Bungee', sans-serif;
+  font-size: 2em;
+  align-self: baseline;
+}
+
+nav button {
+  background-color: transparent;
+  color: #ffffff;
+  align-self: center;
+}
+
+nav button:hover {
+  color: black;
+}
