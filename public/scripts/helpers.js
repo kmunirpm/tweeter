@@ -14,11 +14,16 @@ const counterDisplay = (trgControl, countChar) => {
 const validateLength = (formElement) => {
   $errMsgLabel = $(formElement).parent().find('span');
   const txtTweetLength = $(formElement).find('textarea').val().length;
+  $errMsgLabel.slideUp(); // Animation effect for error message
   if (!txtTweetLength) {
     $errMsgLabel.text('Blank tweet not allowed!');
+    $errMsgLabel.slideDown(); // Animation effect for error message
+    $errMsgLabel.display = true;
     return false;
   } else if (txtTweetLength > 140) {
+    $errMsgLabel.slideDown(); // Animation effect for error message
     $errMsgLabel.text('You have exceeded character limit!');
+    $errMsgLabel.display = true; 
     return false;
   }
   return true;

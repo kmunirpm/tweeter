@@ -55,6 +55,9 @@ article.tweet {
 
 form span {
   color: red;
+  border: 3px solid red;
+  display: none;
+  padding: 2px;
 }
 
 article.tweet header div.user div img {

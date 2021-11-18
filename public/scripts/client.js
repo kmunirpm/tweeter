@@ -21,7 +21,7 @@ $(document).ready(function() {
         $(this).find('textarea').val(''); // Reset the text area after successful tweet
         $(this).find('output.counter').text('140'); // Reset the counter area after successful tweet
         $('#tweets-container').empty(); // Clears the tweets container area
-        $form.find('span').text(''); // Clears error message
+        $form.find('span').text('').display = false; // Clears error message
         loadTweets(); // Reloads the tweets container area
       });
     }
@@ -72,7 +72,10 @@ $(document).ready(function() {
 
   // Loads all the tweets in tweet container section dynamically
   const renderTweets = tweets => {
-    tweets.forEach((tweet) => {
+    const sortedTweets = tweets.sort((a, b) => {
+      return new Date(b.created_at) - new Date(a.created_at); // ascending
+    })
+    sortedTweets.forEach((tweet) => {
       let $tweet = createTweetDomElement(tweet);
       $('#tweets-container').append($tweet);
     });
