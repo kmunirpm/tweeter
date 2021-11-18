@@ -5,29 +5,48 @@
  */
 $(document).ready(function() {
 
+  const $form = $('section.new-tweet form'); // creates form object from the page
 
-  $form.on('submitTweet', sendTweet);
+  // Sends the tweet text to the server after its validation
+  const sendTweet = function(event) {
+    event.preventDefault();
+    if (validateLength(this)) {
+      const data = $(this).serialize();
+      console.log($(this), data)
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data
+      }).then (() => {
+        $(this).find('textarea').val(''); // Reset the text area after successful tweet
+        $(this).find('output.counter').text('140'); // Reset the counter area after successful tweet
+        $('#tweets-container').empty(); // Clears the tweets container area
+        $form.find('span').text(''); // Clears error message
+        loadTweets(); // Reloads the tweets container area
+      });
+    }
+  };
 
-  // Toggle nav bar button for write new tweet section
+  // form submission handler - Makes an Ajax request to call sendTweet function
+  $form.on('submit', sendTweet);
+
+
+  // Toggles write new section visible/invisible
+  const writeNewTweet = () => {
+    $newTweet = $('section.new-tweet');
+    if ($newTweet.css('display') === 'none') {
+      $newTweet.slideDown();
+      $('#tweet-text').focus();
+    } else {
+      $newTweet.slideUp();
+    }
+  };
+
+  // calls writeNewTweet function on button click
   $('nav button').on('click', writeNewTweet);
 
-  const submitTweet = POST {
-   (function() {
-  const $button = $('#load-more-posts');
-  $button.on('click', function () {
-    console.log('Button clicked, performing ajax call...');
-    $.ajax('more-posts.html', { method: 'GET' })
-    .then(function (morePostsHtml) {
-      console.log('Success: ', morePostsHtml);
-      $button.replaceWith(morePostsHtml);
-    });
-  });
-});
-</script>
 
-  }
-  
-
+  // Createss TweetDom object to display tweets dynamically
   const createTweetDomElement  = tweet => {  
     const $tweet = $(`
       <article class="tweet">
@@ -51,14 +70,13 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  // Puts all the tweets in tweet container section dynamically
+  // Loads all the tweets in tweet container section dynamically
   const renderTweets = tweets => {
     tweets.forEach((tweet) => {
       let $tweet = createTweetDomElement(tweet);
       $('#tweets-container').append($tweet);
     });
   };
-
 
   // Fetches tweets from /tweets page
   const loadTweets = () => {
@@ -70,7 +88,6 @@ $(document).ready(function() {
       renderTweets(tweetsJson)
     });
   };
-
 
   // calls the function to load tweets
   loadTweets(); 

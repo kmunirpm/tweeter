@@ -1,3 +1,7 @@
+section.new-tweet {
+  display: none;
+}
+
 /* Flex box and border for the footer */
 section.new-tweet footer {
   border-top: 3px solid black;
@@ -49,6 +53,9 @@ article.tweet {
   border: 3px solid black;
 }
 
+form span {
+  color: red;
+}
 
 article.tweet header div.user div img {
   padding-right: 10px;
@@ -74,7 +81,6 @@ article.handle {
   box-shadow: 5px 10px #888888;
   width: 90%;
 }
-
 
 article.tweet footer span {
   font-size: .6em;
