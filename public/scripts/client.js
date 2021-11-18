@@ -5,6 +5,29 @@
  */
 $(document).ready(function() {
 
+
+  $form.on('submitTweet', sendTweet);
+
+  // Toggle nav bar button for write new tweet section
+  $('nav button').on('click', writeNewTweet);
+
+  const submitTweet = POST {
+   (function() {
+  const $button = $('#load-more-posts');
+  $button.on('click', function () {
+    console.log('Button clicked, performing ajax call...');
+    $.ajax('more-posts.html', { method: 'GET' })
+    .then(function (morePostsHtml) {
+      console.log('Success: ', morePostsHtml);
+      $button.replaceWith(morePostsHtml);
+    });
+  });
+});
+</script>
+
+  }
+  
+
   const createTweetDomElement  = tweet => {  
     const $tweet = $(`
       <article class="tweet">
