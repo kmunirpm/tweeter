@@ -45,7 +45,21 @@ section.new-tweet form label {
   font-weight: bold;
 }
 
+.emoji {
+  padding: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,.3);
+  transition: 
+    text-shadow .2s ease-in-out,
+    transform .2s ease-in-out;
+}
 
+.emoji:hover {
+  transform: scale(2) translatey(-10px);
+  text-shadow: 0 20px 20px rgba(0,0,0,3);
+  cursor: pointer;
+}
+
+  
 /* Black box around the tweet */
 article.tweet {
   margin: 50px 0 15px 0;

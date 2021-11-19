@@ -58,12 +58,12 @@ $(document).ready(function() {
             </div>
             <span class="handle">${tweet.user.handle}</span>
           </div>
-          <p>${escape(tweet.content.text).replaceAll("%20", " ")}</p>
+          <p>${escape(tweet.content.text)}</p>
         </header>
         <footer>
           <div>
             <span>${Math.floor((new Date() - new Date(tweet.created_at))/(1000 * 60 * 60 * 24))} Day(s) ago - ${Date(tweet.created_at)}</span>
-            <span class="icons">icons</span>
+            <span class="icons"><span class="emoji">&#127988</span><span class="emoji">&#128257</span><span class="emoji">&#128155</span></span>
           </div>
         </footer>
       </article>`);
