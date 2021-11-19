@@ -18,7 +18,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
+Mobile View
 !["Mobile and Tablet view of the app"](https://github.com/kmunirpm/tweeter/blob/main/public/images/mobile.png)
 
-
+Desktop View
 !["Desktop view of the app"](https://github.com/kmunirpm/tweeter/blob/main/public/images/desktop.png)
