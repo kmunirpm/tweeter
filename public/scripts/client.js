@@ -1,3 +1,4 @@
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -12,7 +13,7 @@ $(document).ready(function() {
     event.preventDefault();
     if (validateLength(this)) {
       const data = $(this).serialize();
-      console.log($(this), data)
+      //console.log($(this), data)
       $.ajax({
         url: '/tweets',
         method: 'POST',
@@ -62,13 +63,14 @@ $(document).ready(function() {
         </header>
         <footer>
           <div>
-            <span>${Math.floor((new Date() - new Date(tweet.created_at))/(1000 * 60 * 60 * 24))} Day(s) ago - ${Date(tweet.created_at)}</span>
+            <span>${timeAgo(tweet.created_at)} ago</span>
             <span class="icons"><span class="emoji">&#127988</span><span class="emoji">&#128257</span><span class="emoji">&#128155</span></span>
           </div>
         </footer>
       </article>`);
     return $tweet;
   };
+
 
   // Loads all the tweets in tweet container section dynamically
   const renderTweets = tweets => {
